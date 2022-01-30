@@ -11,7 +11,6 @@ class Request():
     def get_header(self,headers):
         """
         获取headers
-        :return:
         """
         self.headers = headers
 

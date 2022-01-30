@@ -4,20 +4,24 @@
 #创建项目
 add_project = {
         "name":"syy",
-        "basepath":"",
-        "group_id":"29",
+        "group_id":"41",
         "icon":"code-o",
         "color":"pink",
         "project_type":"private"
 }
 
+#删除项目
+del_projcet = {
+        "id":""
+}
+
 #添加接口
 add_api = {
         "method":"GET",
-        "catid":"77",
-        "title":"api10",
-        "path":"/api10",
-        "project_id":45
+        "catid":"132",
+        "title":"api1",
+        "path":"/api1",
+        "project_id":86
 }
 
 
@@ -27,7 +31,7 @@ edit_api = {
         "req_headers":[],
         "req_body_form":[],
         "title":"api2",
-        "catid":"77",
+        "catid":"132",
         "path":"/api2",
         "tag":[],
         "status":"undone",
