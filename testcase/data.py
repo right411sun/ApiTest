@@ -1,22 +1,14 @@
 
 
 
-#创建项目
-add_project = {
-        "name":"syy",
-        "group_id":"41",
-        "icon":"code-o",
-        "color":"pink",
-        "project_type":"private"
+#查看接口
+find_api = {
+        "project_id":86
 }
 
-#删除项目
-del_projcet = {
-        "id":""
-}
 
-#添加接口
-add_api = {
+#正常添加接口
+add_api_nromal= {
         "method":"GET",
         "catid":"132",
         "title":"api1",
@@ -24,6 +16,33 @@ add_api = {
         "project_id":86
 }
 
+#错误添加接口 path错误类型
+add_api_error= {
+        "method":"GET",
+        "catid":"132",
+        "title":"api1",
+        "path":"哈哈哈",
+        "project_id":86
+}
+
+#异常添加接口
+add_api_null= {
+        "method":"GET",
+        "catid":"132",
+        "title":"",
+        "path":"",
+        "project_id":86
+}
+
+
+#边界值错误添加接口
+add_api_bound= {
+        "method":"GET",
+        "catid":"132",
+        "title":"a"*100,
+        "path":"/api14",
+        "project_id":86
+}
 
 #修改接口
 edit_api = {

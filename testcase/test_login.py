@@ -5,68 +5,58 @@ from common.request import req
 from testcase.data import *
 
 
-#创建项目
 @pytest.mark.debug
-@pytest.mark.case
-def test_add_projcet(yapi_login):
-    print('正在执行：创建项目')
-    if yapi_login == "访客账号":
-        pytest.skip("访客账号没有权限,跳过该用例")
-    res = req.api_post("/api/project/add",data= add_project)
-    vp['prijcet_id'] = res['res']['data']['_id']
-    assert res['res']['errmsg'] == '成功！'
+@pytest.mark.admin
+@pytest.mark.developer
+@pytest.mark.visitor
+def test_find_api():
+    print('正在执行：查看接口')
+    res = req.api_get("/api/interface/list_menu",params= find_api)
+    assert res['res']['errmsg'] == '成功！', "实际返回数据:{}".format(str(res))
 
-#删除项目
 @pytest.mark.debug
-@pytest.mark.case
-def test_del_project(yapi_login):
-    print('正在执行：删除项目')
-    if yapi_login == "访客账号":
-        pytest.skip("访客账号没有权限,跳过该用例")
-    del_projcet["id"] = vp['prijcet_id']
-    res = req.api_post("/api/project/del", data= del_projcet)
-    assert res['res']['errmsg'] == '成功！'
+@pytest.mark.admin
+@pytest.mark.developer
+class Test_Add_Api():
+    #添加接口
 
-
-
-#@pytest.mark.debug
-@pytest.mark.case
-class Test_Api():
-
-    # 添加接口
-    def test_add_api(self,yapi_login):
-        print('正在执行：添加接口')
-        res = req.api_post("/api/interface/add", data=add_api)
-        if yapi_login == "访客账号":
-            assert res['res']['errmsg'] == '没有权限'
-            return
+    def test_add_normal(self):
+        print('正在执行：正常添加接口')
+        res = req.api_post("/api/interface/add", data=add_api_nromal)
         vp['api_id'] = res['res']['data']['_id']
-        assert res['res']['errmsg'] == '成功！'
+        assert res['res']['errmsg'] == '成功！', "实际返回数据:{}".format(str(res))
 
+    def test_add_error(self):
+        print('正在执行：错误添加接口')  #path类型错误
+        res = req.api_post("/api/interface/add", data=add_api_error)
+        assert res['res']['errmsg'] == 'path第一位必需为 /, 只允许由 字母数字-/_:.! 组成', "实际返回数据:{}".format(str(res))
 
-    #修改接口
-    def test_edit_api(self,yapi_login):
-        print('正在执行：修改接口')
-        if yapi_login == "访客账号":
-            pytest.skip("访客账号没有权限,跳过该用例")
-        edit_api['id'] = vp['api_id']
-        res = req.api_post("/api/interface/up", data=edit_api)
-        assert res['res']['errmsg'] == '成功！'
+    def test_add_null(self):
+        print('正在执行：必填项置空添加接口')  #title，path置空
+        res = req.api_post("/api/interface/add", data=add_api_null)
+        assert res['res']['errmsg'] == '请求参数 data.path 不应少于 1 个字符\ndata.title 不应少于 1 个字符', "实际返回数据:{}".format(str(res))
 
-    #删除接口
-    def test_del_api(self,yapi_login):
-        print('正在执行：删除接口')
-        if yapi_login == "访客账号":
-            pytest.skip("访客账号没有权限,跳过该用例")
-        del_api['id'] = vp['api_id']
-        res = req.api_post("/api/interface/del", data=del_api)
-        assert res['res']['errmsg'] == '成功！'
+    def test_add_bound(self):
+        print('正在执行：边界值错误添加接口')  # title超出字符
+        res = req.api_post("/api/interface/add", data=add_api_bound)
+        assert res['res']['errmsg'] == '请输入接口名称，长度不超过100字符(中文算作2字符)!', "实际返回数据:{}".format(str(res))
 
+@pytest.mark.debug
+@pytest.mark.admin
+@pytest.mark.developer
+# 修改接口
+def test_edit_api():
+    print('正在执行：修改接口')
+    edit_api['id'] = vp['api_id']
+    res = req.api_post("/api/interface/up", data=edit_api)
+    assert res['res']['errmsg'] == '成功！', "实际返回数据:{}".format(str(res))
 
-
-
-
-
-
-
-
+@pytest.mark.debug
+@pytest.mark.admin
+@pytest.mark.developer
+# 删除接口
+def test_del_api():
+    print('正在执行：删除接口')
+    del_api['id'] = vp['api_id']
+    res = req.api_post("/api/interface/del", data=del_api)
+    assert res['res']['errmsg'] == '成功！', "实际返回数据:{}".format(str(res))

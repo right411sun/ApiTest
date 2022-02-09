@@ -14,12 +14,12 @@ class Request():
         """
         self.headers = headers
 
-    def api_get(self,url):
+    def api_get(self,url,params = ''):
         """
         封装get请求
         """
         try:
-            res = requests.get(url= api_url + url,headers= self.headers)
+            res = requests.get(url= api_url + url,headers= self.headers,params= params)
             response = {"res":res.json(), "status_code":res.status_code}
             print(response)
             return response
