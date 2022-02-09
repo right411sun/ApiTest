@@ -8,11 +8,12 @@ class Request():
     """
     封装通用方法
     """
-    def get_header(self,headers):
+    def get_header(self, header = {}):
         """
         获取headers
         """
-        self.headers = headers
+
+        self.headers = header
 
     def api_get(self,url,params = ''):
         """
@@ -20,7 +21,8 @@ class Request():
         """
         try:
             res = requests.get(url= api_url + url,headers= self.headers,params= params)
-            response = {"res":res.json(), "status_code":res.status_code}
+            cookie = requests.utils.dict_from_cookiejar(res.cookies)
+            response = {"res": res.json(), "status_code": res.status_code, "cookie": cookie}
             print(response)
             return response
         except Exception as e:
@@ -32,7 +34,8 @@ class Request():
         """
         try:
             res = requests.post(url= api_url + url, headers= self.headers, data= data)
-            response = {"res": res.json(), "status_code": res.status_code}
+            cookie = requests.utils.dict_from_cookiejar(res.cookies)
+            response = {"res": res.json(), "status_code": res.status_code, "cookie": cookie}
             print(response)
             return response
         except Exception as e:

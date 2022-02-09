@@ -184,9 +184,9 @@
           visible: false,
           dialogVisible: false,
           data: [],
-          tableData: [{'id': 1644399809.0427706, 'title': 'testcase/test_login.py::test_find_api', 'logs': '\n', 'result': 1, 'duration': 0.014965400000000018, 'doc': '', 'time': '2022-02-09 17:43:29'}, {'id': 1644399809.090767, 'title': 'testcase/test_login.py::Test_Add_Api::test_add_normal', 'logs': '\n', 'result': 1, 'duration': 0.03175690000000009, 'doc': '', 'time': '2022-02-09 17:43:29'}, {'id': 1644399809.1435418, 'title': 'testcase/test_login.py::Test_Add_Api::test_add_error', 'logs': '\n', 'result': 1, 'duration': 0.021703699999999992, 'doc': '', 'time': '2022-02-09 17:43:29'}, {'id': 1644399809.1854303, 'title': 'testcase/test_login.py::Test_Add_Api::test_add_null', 'logs': '\n', 'result': 1, 'duration': 0.018427200000000088, 'doc': '', 'time': '2022-02-09 17:43:29'}, {'id': 1644399809.3814213, 'title': 'testcase/test_login.py::Test_Add_Api::test_add_bound', 'logs': '\nself = <testcase.test_login.Test_Add_Api object at 0x00000249B75B35B0>\n\n    def test_add_bound(self):\n        print(\'正在执行：边界值错误添加接口\')  # title超出字符\n        res = req.api_post("/api/interface/add", data=add_api_bound)\n>       assert res[\'res\'][\'errmsg\'] == \'请输入接口名称，长度不超过100字符(中文算作2字符)!\', "实际返回数据:{}".format(str(res))\nE       AssertionError: 实际返回数据:{\'res\': {\'errcode\': 40022, \'errmsg\': \'已存在的接口:/api14[GET]\', \'data\': None}, \'status_code\': 200}\nE       assert \'已存在的接口:/api14[GET]\' == \'请输入接口名称，长度不超过100字符(中文算作2字符)!\'\nE         - 请输入接口名称，长度不超过100字符(中文算作2字符)!\nE         + 已存在的接口:/api14[GET]\n\ntestcase\\test_login.py:42: AssertionError', 'result': 0, 'duration': 0.020385100000000045, 'doc': '', 'time': '2022-02-09 17:43:29'}, {'id': 1644399809.4352794, 'title': 'testcase/test_login.py::test_edit_api', 'logs': '\n', 'result': 1, 'duration': 0.03162660000000006, 'doc': '', 'time': '2022-02-09 17:43:29'}, {'id': 1644399809.4642022, 'title': 'testcase/test_login.py::test_del_api', 'logs': '\n', 'result': 1, 'duration': 0.011358800000000002, 'doc': '', 'time': '2022-02-09 17:43:29'}],
+          tableData: [{'id': 1644417001.7435188, 'title': 'testcase/test_01_login.py::test_login[admin-user_data0]', 'logs': '\n', 'result': 1, 'duration': 0.027087199999999978, 'doc': '登陆', 'time': '2022-02-09 22:30:01'}, {'id': 1644417001.767236, 'title': 'testcase/test_01_login.py::test_login[developer-user_data1]', 'logs': '\n', 'result': 1, 'duration': 0.008840300000000023, 'doc': '登陆', 'time': '2022-02-09 22:30:01'}, {'id': 1644417001.7976534, 'title': 'testcase/test_01_login.py::test_login[visitor-user_data2]', 'logs': '\n', 'result': 1, 'duration': 0.00830439999999999, 'doc': '登陆', 'time': '2022-02-09 22:30:01'}],
           logs:'',
-          summary: {'total': 7, 'success': 6, 'failed': 1, 'success_rate': 0.8571428571428571, 'fail_rate': 0.14285714285714285, 'duration': 0.1502237000000003, 'avg_duration': 0.021460528571428612},
+          summary: {'total': 3, 'success': 3, 'failed': 0, 'success_rate': 1.0, 'fail_rate': 0.0, 'duration': 0.04423189999999999, 'avg_duration': 0.014743966666666664},
           expands: [],
           getRowKeys (row) {
             return row.id
@@ -322,7 +322,7 @@ option = {
             color: 'auto'
         },
         data: [{
-            value: 0.8571428571428571,
+            value: 1.0,
             name: '执行成功率'
         }]
     }]
@@ -354,7 +354,7 @@ option = {
             name: '访问来源',
             type: 'pie',
             radius: '50%',
-            data: [{'value': 6, 'name': 'Success', 'itemStyle': {'color': '#97cc64'}}, {'value': 1, 'name': 'Failed', 'itemStyle': {'color': '#fd5a3e'}}],
+            data: [{'value': 3, 'name': 'Success', 'itemStyle': {'color': '#97cc64'}}, {'value': 0, 'name': 'Failed', 'itemStyle': {'color': '#fd5a3e'}}],
             emphasis: {
                 itemStyle: {
                     shadowBlur: 10,
