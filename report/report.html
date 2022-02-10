@@ -184,9 +184,9 @@
           visible: false,
           dialogVisible: false,
           data: [],
-          tableData: [{'id': 1644417001.7435188, 'title': 'testcase/test_01_login.py::test_login[admin-user_data0]', 'logs': '\n', 'result': 1, 'duration': 0.027087199999999978, 'doc': '登陆', 'time': '2022-02-09 22:30:01'}, {'id': 1644417001.767236, 'title': 'testcase/test_01_login.py::test_login[developer-user_data1]', 'logs': '\n', 'result': 1, 'duration': 0.008840300000000023, 'doc': '登陆', 'time': '2022-02-09 22:30:01'}, {'id': 1644417001.7976534, 'title': 'testcase/test_01_login.py::test_login[visitor-user_data2]', 'logs': '\n', 'result': 1, 'duration': 0.00830439999999999, 'doc': '登陆', 'time': '2022-02-09 22:30:01'}],
+          tableData: [{'id': 1644499069.3165028, 'title': 'testcase/test_login.py::test_login[visitor-user_data0]', 'logs': '\n', 'result': 1, 'duration': 0.011567699999999959, 'doc': '登陆', 'time': '2022-02-10 21:17:49'}, {'id': 1644499069.3477407, 'title': 'testcase/test_login.py::test_login[developer-user_data1]', 'logs': '\n', 'result': 1, 'duration': 0.012780000000000014, 'doc': '登陆', 'time': '2022-02-10 21:17:49'}, {'id': 1644499069.3787012, 'title': 'testcase/test_login.py::test_login[admin-user_data2]', 'logs': '\n', 'result': 1, 'duration': 0.012821699999999936, 'doc': '登陆', 'time': '2022-02-10 21:17:49'}, {'id': 1644499069.4210334, 'title': 'testcase/test_api.py::test_find_api[visitor]', 'logs': '\n', 'result': 1, 'duration': 0.022994700000000035, 'doc': '', 'time': '2022-02-10 21:17:49'}, {'id': 1644499069.460033, 'title': 'testcase/test_api.py::test_find_api[developer]', 'logs': '\n', 'result': 1, 'duration': 0.017858700000000005, 'doc': '', 'time': '2022-02-10 21:17:49'}, {'id': 1644499069.506213, 'title': 'testcase/test_api.py::Test_Add_Api::test_add_normal', 'logs': '\n', 'result': 1, 'duration': 0.03177320000000006, 'doc': '', 'time': '2022-02-10 21:17:49'}, {'id': 1644499069.538128, 'title': 'testcase/test_api.py::Test_Add_Api::test_add_error[admin]', 'logs': '\n', 'result': 1, 'duration': 0.016911300000000073, 'doc': '', 'time': '2022-02-10 21:17:49'}, {'id': 1644499069.5680475, 'title': 'testcase/test_api.py::Test_Add_Api::test_add_error[developer]', 'logs': '\n', 'result': 1, 'duration': 0.015528100000000045, 'doc': '', 'time': '2022-02-10 21:17:49'}, {'id': 1644499069.605103, 'title': 'testcase/test_api.py::Test_Add_Api::test_add_null', 'logs': '\n', 'result': 1, 'duration': 0.018633600000000028, 'doc': '', 'time': '2022-02-10 21:17:49'}, {'id': 1644499069.7991855, 'title': 'testcase/test_api.py::Test_Add_Api::test_add_bound', 'logs': '\nself = <testcase.test_api.Test_Add_Api object at 0x0000025B8D473C70>\n\n    def test_add_bound(self):\n        print(\'正在执行：边界值错误添加接口\')  # title超出字符\n        res = req.api_post("/api/interface/add", data=add_api_bound)\n>       assert res[\'res\'][\'errmsg\'] == \'请输入接口名称，长度不超过100字符(中文算作2字符)!\', "实际返回数据:{}".format(str(res))\nE       AssertionError: 实际返回数据:{\'res\': {\'errcode\': 40022, \'errmsg\': \'已存在的接口:/api14[GET]\', \'data\': None}, \'status_code\': 200, \'cookie\': {}}\nE       assert \'已存在的接口:/api14[GET]\' == \'请输入接口名称，长度不超过100字符(中文算作2字符)!\'\nE         - 请输入接口名称，长度不超过100字符(中文算作2字符)!\nE         + 已存在的接口:/api14[GET]\n\ntestcase\\test_api.py:46: AssertionError', 'result': 0, 'duration': 0.022850200000000043, 'doc': '', 'time': '2022-02-10 21:17:49'}, {'id': 1644499069.8480518, 'title': 'testcase/test_api.py::test_edit_api', 'logs': '\n', 'result': 1, 'duration': 0.026104499999999975, 'doc': '', 'time': '2022-02-10 21:17:49'}, {'id': 1644499069.8792553, 'title': 'testcase/test_api.py::test_del_api', 'logs': '\n', 'result': 1, 'duration': 0.011189300000000069, 'doc': '', 'time': '2022-02-10 21:17:49'}],
           logs:'',
-          summary: {'total': 3, 'success': 3, 'failed': 0, 'success_rate': 1.0, 'fail_rate': 0.0, 'duration': 0.04423189999999999, 'avg_duration': 0.014743966666666664},
+          summary: {'total': 12, 'success': 11, 'failed': 1, 'success_rate': 0.9166666666666666, 'fail_rate': 0.08333333333333333, 'duration': 0.22101300000000024, 'avg_duration': 0.01841775000000002},
           expands: [],
           getRowKeys (row) {
             return row.id
@@ -322,7 +322,7 @@ option = {
             color: 'auto'
         },
         data: [{
-            value: 1.0,
+            value: 0.9166666666666666,
             name: '执行成功率'
         }]
     }]
@@ -354,7 +354,7 @@ option = {
             name: '访问来源',
             type: 'pie',
             radius: '50%',
-            data: [{'value': 3, 'name': 'Success', 'itemStyle': {'color': '#97cc64'}}, {'value': 0, 'name': 'Failed', 'itemStyle': {'color': '#fd5a3e'}}],
+            data: [{'value': 11, 'name': 'Success', 'itemStyle': {'color': '#97cc64'}}, {'value': 1, 'name': 'Failed', 'itemStyle': {'color': '#fd5a3e'}}],
             emphasis: {
                 itemStyle: {
                     shadowBlur: 10,

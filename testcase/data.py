@@ -1,5 +1,13 @@
+#账号
+user = [
+        ("visitor", {"email": "shiyangyan1@163.com", "password": "password123"}),
+        ("developer", {"email": "shiyangyan@163.com", "password": "password123"}),
+        ("admin", {"email": "admin@admin.com", "password": "password123"})
+]
 
-
+#切换用户
+user1 = ["visitor", "developer"]
+user2 = ["admin", "developer"]
 
 #查看接口
 find_api = {
@@ -39,7 +47,7 @@ add_api_null= {
 add_api_bound= {
         "method":"GET",
         "catid":"132",
-        "title":"a"*100,
+        "title":"你"*100,
         "path":"/api14",
         "project_id":86
 }

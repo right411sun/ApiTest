@@ -1,19 +1,22 @@
 import requests
 from config.config import *
 
-
-vp = {}
-
 class Request():
     """
     封装通用方法
     """
-    def get_header(self, header = {}):
+    vp = {
+        "visitor_cookie": "",
+        "developer_cookie": "",
+        "admin_cookie": ""
+    }
+    def get_header(self, header: dict = None):
         """
         获取headers
         """
-
-        self.headers = header
+        headers = {}
+        headers if not header else headers.update(header)
+        self.headers = headers
 
     def api_get(self,url,params = ''):
         """
